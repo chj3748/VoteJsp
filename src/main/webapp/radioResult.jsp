@@ -1,32 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
 
 <%
-	//String id = session.getAttribute("userId");
-	String id = new String("ahhyun");
-	String menu[] = request.getParameterValues("menu");
-	try {
-		Class.forName("com.mysql.cj.jdbc.Driver"); // DB���� ��ü ����
-		Connection con = DriverManager.getConnection("jdbc:mysql://13.209.88.99:3306/jsp", "aws", "1234");
-		
-		Statement stmt = con.createStatement();
-		ResultSet rs=stmt.executeQuery("select id from vote_user where id='"+id+"'");
-		//�����ͺ��̽��� ������ ��ȣ�� �ִ��� Ȯ��
-		if(rs.next()) {
-			ResultSet rs2=stmt.executeQuery("select voter from vote_result where voter='"+id+"'");
-			if(rs2.next()){
+	
+	if(session.getAttribute("userId") != null){
+		//String id = new String("ahhyun");
+		String id = session.getAttribute("userId");
+		String menu[] = request.getParameterValues("menu");
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver"); // DB연결 객체 생성
+			Connection con = DriverManager.getConnection("jdbc:mysql://13.209.88.99:3306/jsp", "aws", "1234");
+			
+			Statement stmt = con.createStatement();
+			ResultSet rs=stmt.executeQuery("select id from vote_user where id='"+id+"'");
+			//데이터베이스에 동일한 번호가 있는지 확인
+			if(rs.next()) {
+				ResultSet rs2=stmt.executeQuery("select voter from vote_result where voter='"+id+"'");
+				if(rs2.next()){
 %>
 				<script>
-					alert("�̹� ��ǥ�� �Ϸ��߽��ϴ�."); // 
+					alert("이미 투표를 완료했습니다."); // 
 					history.go(-1);
 				</script>
 
@@ -38,7 +40,7 @@
 			
 %>
 	
-			<span>��ϵǾ����ϴ�.</span>
+			<span>기록되었습니다.</span>
 			<h1><%=id %></h1>
 			<h1><%=menu[0] %></h1>
 			
@@ -49,7 +51,7 @@
 %>
 	
 			<script>
-				alert("�������� �ʴ� ID�Դϴ�."); // 
+				alert("존재하지 않는 ID입니다."); // 
 				history.go(-1);
 			</script>
 		
@@ -60,6 +62,18 @@
 		con.close();
 	} catch (Exception e) {
 		out.println(e);
+	}
+	}else{
+		
+	%>
+	
+			<script>
+				alert("로그인 해주세요"); // 
+				history.go(-1);
+			</script>
+	
+	<%
+		
 	}
 	%>
 
