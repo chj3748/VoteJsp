@@ -20,7 +20,7 @@
    	request.setCharacterEncoding("UTF-8");
 
    /* 세션에 값이 없다면 */
-   if (session.getAttribute("userid") == null) {
+   if (session.getAttribute("userId") == null) {
    %>
 	<button class="inputBtn" onclick="location.href='join.jsp'">회원가입</button>
 	<button class="inputBtn" onclick="location.href='login.jsp'">로그인</button>
@@ -28,14 +28,14 @@
 	<%
    }
    /* 세션에 값이 있다면 */
-   else if (session.getAttribute("userid") != null) {
+   else if (session.getAttribute("userId") != null) {
    %>
 
 	<%
    //db 접근해서 vote_result 안에 voter = id
    Connection IDcon = null;
    PreparedStatement IDpstmt = null;
-   String Ss_id = (String)session.getAttribute("userid");
+   String Ss_id = (String)session.getAttribute("userId");
    int findID = 0;
    try {
       Class.forName("com.mysql.cj.jdbc.Driver");
