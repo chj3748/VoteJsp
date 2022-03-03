@@ -4,9 +4,18 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>야식 전쟁</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<a href="vote.jsp"> 투표하기</a>
+
+<%
+
+	String menu[] = request.getParameterValues("menu");
+	
+
+%>
+
+	<h1><%=menu[0] %></h1>
+
 </body>
 </html>
