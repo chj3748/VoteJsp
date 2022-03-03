@@ -100,7 +100,7 @@ public class VoteDAO {
 		LinkedHashMap<String, Integer> result = new LinkedHashMap<>();
 		getConnection();
 		try {
-			String sql = "select count(*) as cnt, candidate from vote_user group by candidate order by cnt;";
+			String sql = "select count(*) as cnt, candidate from vote_result group by candidate order by cnt;";
 			psmt = conn.prepareStatement(sql);
 
 			rs = psmt.executeQuery();
