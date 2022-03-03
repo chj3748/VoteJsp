@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%>
@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -58,7 +58,7 @@
    
  
   	  if (findID == 1) {
-  		System.out.println("중복된 아이디입니다");
+  		response.sendRedirect("loginFail.jsp");
     
 	  // 비밀번호 일치 확인
       } else if (pwd.equals(pwdc)) {
@@ -101,25 +101,19 @@
 	   			  System.out.println(se.getMessage());
 	   		  }
    	  		}
-      }
-	  else{
-	  	System.out.println("가입 실패");
-	  }
+      
    	  
-   	  // 3. 사용자(클라이언트)에 결과를 응답하기.
-
-   	  /* if (n > 0) {
-		  alert('가입에 성공했습니다')
-   	  } else {
-		  "<h3 style=\"font-size: 20; text-align:center; \">가입에 실패했습니다.</h3>"+
-		  "<a href='javascript:history.go(-1)' style=\"display:block; width:100%; color: black; font-size: 20; text-align:center \">이전페이지로 가기</a>" +
-
-   	  }
+	   	  if (n > 0) {
+	   		response.sendRedirect("index.jsp");
+	   	  } else {
+	   		response.sendRedirect("loginFail.jsp");
+	   	  }
+   	  
      } else {
-		  "<h3 style=\"font-size: 20; text-align:center; \">비밀번호가 일치하지 않습니다.</h3>"+
-		  "<a href='javascript:history.go(-1)' style=\"display:block; width:100%; color: black; font-size: 20; text-align:center \">이전페이지로 가기</a>" +
-     	} 
-     } */
+    	 //비밀번호 일치하지 않는 경우
+    	 response.sendRedirect("loginFail.jsp");
+	 } 
+     
    %>
 </body>
 </html>
