@@ -13,26 +13,26 @@
 <title>Welcome</title>
 </head>
 <body>
-	<h1>야 식 전 쟁</h1>
+	<h1>ì¼ ì ì  ì</h1>
 
 	
 	<%
    	request.setCharacterEncoding("UTF-8");
 
-   /* 세션에 값이 없다면 */
+   /* ì¸ìì ê°ì´ ìë¤ë©´ */
    if (session.getAttribute("userId") == null) {
    %>
-	<button class="inputBtn" onclick="location.href='join.jsp'">회원가입</button>
-	<button class="inputBtn" onclick="location.href='login.jsp'">로그인</button>
+	<button class="inputBtn" onclick="location.href='join.jsp'">íìê°ì</button>
+	<button class="inputBtn" onclick="location.href='login.jsp'">ë¡ê·¸ì¸</button>
 
 	<%
    }
-   /* 세션에 값이 있다면 */
+   /* ì¸ìì ê°ì´ ìë¤ë©´ */
    else if (session.getAttribute("userId") != null) {
    %>
 
 	<%
-   //db 접근해서 vote_result 안에 voter = id
+   //db ì ê·¼í´ì vote_result ìì voter = id
    Connection IDcon = null;
    PreparedStatement IDpstmt = null;
    String Ss_id = (String)session.getAttribute("userId");
@@ -61,18 +61,16 @@
       }
    }
    if (findID == 1) {%>
-	<button class="inputBtn" onclick="location.href='yeunsung_resultpage.jsp'">투표현황</button>
+	<button class="inputBtn" onclick="location.href='yeunsung_resultpage.jsp'">í¬ííí©</button>
 	<%}
    
    else{%>
-	<button class="inputBtn" onclick="location.href='vote.jsp'">투표하기</button>
+	<button class="inputBtn" onclick="location.href='vote.jsp'">í¬ííê¸°</button>
 	<%
    }%>
-	<button class="inputBtn" onclick="location.href='logout.jsp'">로그아웃</button>
+	<button class="inputBtn" onclick="location.href='logout.jsp'">ë¡ê·¸ìì</button>
 	<% 
    }
    %>
-
-
 </body>
 </html>
