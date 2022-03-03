@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>야식 전쟁</title>
+<title>투표하기</title>
 </head>
 <body>
+
+	<h1>투포하기</h1>
 
 </body>
 </html>
