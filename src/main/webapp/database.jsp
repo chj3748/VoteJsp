@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>database connect test</title>
 </head>
 <body>
@@ -13,13 +13,13 @@
 	Connection con = null;
 	try {
 		
-		Class.forName("com.mysql.cj.jdbc.Driver"); // DB¿¬°á °´Ã¼ »ı¼º
+		Class.forName("com.mysql.cj.jdbc.Driver"); // DBì—°ê²° ê°ì²´ ìƒì„±
 		con = DriverManager.getConnection("jdbc:mysql://13.209.88.99:3306/jsp", "aws", "1234");
-		out.println("DatabaseÁ¢¼ÓµÇ¾ú½À´Ï´Ù. ");
+		out.println("Databaseì ‘ì†ë˜ì—ˆìŠµë‹ˆë‹¤. ");
 		con.close();
 	}
 	catch (Exception e) {
-		out.println("DatabaseÁ¢¼ÓºÒ°¡");
+		out.println("Databaseì ‘ì†ë¶ˆê°€");
 		out.println(e.getMessage());
 		e.printStackTrace();
 	}
