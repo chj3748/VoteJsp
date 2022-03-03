@@ -13,7 +13,8 @@
 <title>Welcome</title>
 </head>
 <body>
-	<h1>야 식 전 쟁</h1>
+	<h1>야 식</h1>
+	<h1>전 쟁</h1>
 
 	
 	<%
@@ -21,7 +22,7 @@
 
    if (session.getAttribute("userId") == null) {
    %>
-	<button class="inputBtn" onclick="location.href='join.jsp'">회원가입</button>
+   	<button class="inputBtn" onclick="location.href='join.jsp'">회원가입</button>
 	<button class="inputBtn" onclick="location.href='login.jsp'">로그인</button>
 
 	<%
