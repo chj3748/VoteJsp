@@ -11,6 +11,9 @@
 
 
 <body>
+<%
+
+%>
 <div align="center">
 <br />
 <h2>투표 결과</h2>
@@ -22,7 +25,8 @@
 	</tr>
 	
 	<tr>
-		<td width="20" align="center"><%=%></td>
+	
+		<td width="20" align="center"><%=i+1%></td>
 		
 		<td width="120" align="center">
 			<%if(maxCnt==count){ %>
@@ -40,9 +44,10 @@
 				<tr>
 					<td bgcolor="<%=rgb%>" height="15"></td>
 				</tr>
-			</table>
-					
+			</table>	
+				
 		</td>
+		
 		<td width="40" align="center"><%=count%>(<%=ratio%>)</td>
 	</tr>
 </table>

@@ -4,13 +4,10 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>야식 전쟁</title>
+<title>Insert title here</title>
 </head>
 <body>
-
-	<a href="vote.jsp"> 투표하기</a>
+<h1>요청에 응답하지 못했습니다.</h1>
+<a href="index.jsp">메인으로 이동하기</a>
 </body>
 </html>
-
-
-
