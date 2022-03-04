@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import pack.config.Config;
+
 public class UserDAO {
 	private Connection conn;
 	private PreparedStatement psmt;
@@ -15,7 +17,7 @@ public class UserDAO {
 
 	private void getConnection() throws Exception {
 		String driver = "com.mysql.cj.jdbc.Driver";
-		String db_url = "jdbc:mysql://13.209.88.99:3306/jsp";
+		String db_url = "jdbc:mysql://"+Config.getDbIP()+":3306/jsp";
 		String db_id = "aws";
 		String db_pw = "1234";
 		try {
