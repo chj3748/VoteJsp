@@ -24,7 +24,7 @@ public class UserDAO {
 			System.out.println("db connected");
 		} catch (ClassNotFoundException | SQLException e) {
 //			e.printStackTrace();
-			throw new Exception("db connect ½ÇÆÐÀÓ ¤·¤·");
+			throw new Exception("db connect ì‹¤íŒ¨ìž„ ã…‡ã…‡");
 		}
 
 	}
@@ -43,7 +43,7 @@ public class UserDAO {
 			System.out.println("connection close");
 		} catch (SQLException e) {
 //			e.printStackTrace();
-			throw new Exception("db close ½ÇÆÐÀÓ ¤·¤·");
+			throw new Exception("db close ì‹¤íŒ¨ìž„ ã…‡ã…‡");
 		}
 
 	}
@@ -53,7 +53,7 @@ public class UserDAO {
 			getConnection();
 			String sql = "insert into vote_user values(?,?,?,?,?);";
 			psmt = conn.prepareStatement(sql);
-			System.out.println("insert ½ÇÇà");
+			System.out.println("join db ì‹œìž‘");
 			
 			psmt.setString(1, dto.getId());
 			psmt.setString(2, dto.getPwd());
@@ -64,7 +64,7 @@ public class UserDAO {
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {
 //			e.printStackTrace();
-			throw new Exception("È¸¿ø°¡ÀÔ ½ÇÆÐÀÓ ¤·¤·");
+			throw new Exception("join ì‹¤íŒ¨ìž„ ã…‡ã…‡");
 		} finally {
 			close();
 		}
@@ -92,7 +92,7 @@ public class UserDAO {
 			}
 		} catch (SQLException e) {
 //			e.printStackTrace();
-			throw new Exception("·Î±×ÀÎ ½ÇÆÐÀÓ ¤·¤·");
+			throw new Exception("login ì‹¤íŒ¨ìž„ ã…‡ã…‡");
 		} finally {
 			close();
 		}
@@ -118,11 +118,43 @@ public class UserDAO {
 			}
 		} catch (SQLException e) {
 //			e.printStackTrace();
-			throw new Exception("À¯Àú Ã£±â ½ÇÆÐÀÓ ¤·¤·");
+			throw new Exception("find user ì‹¤íŒ¨ìž„ ã…‡ã…‡");
 		} finally {
 			close();
 		}
 		return user;
 	}
-		
+	
+	public int adminOpen() throws Exception {
+		getConnection();
+		try {
+			String sql = "update vote_user set age=0 where id='admin';";
+			psmt = conn.prepareStatement(sql);
+
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+//			e.printStackTrace();
+			throw new Exception("íˆ¬í‘œì‹œìž‘ ì‹¤íŒ¨ìž„ ã…‡ã…‡");
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
+	public int adminClose() throws Exception {
+		getConnection();
+		try {
+			String sql = "update vote_user set age=1 where id='admin';";
+			psmt = conn.prepareStatement(sql);
+
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+//			e.printStackTrace();
+			throw new Exception("íˆ¬í‘œ ì¢…ë£Œ ì‹¤íŒ¨ìž„ ã…‡ã…‡");
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+	
 }
