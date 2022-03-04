@@ -140,7 +140,12 @@ public class VoteDAO {
 		getConnection();
 		Boolean rsDrop = false;
 		try {
-			String sql = "create table vote_result;";
+			String sql = "CREATE TABLE vote_result (\r\n"
+					+ "  id int not null auto_increment,\r\n"
+					+ "  voter varchar(20) not null,\r\n"
+					+ "  candidate varchar(20) not null,\r\n"
+					+ "  vote_time timestamp not null,\r\n"
+					+ "  PRIMARY KEY (id));";
 			psmt = conn.prepareStatement(sql);
 			
 			rsDrop = psmt.execute();
