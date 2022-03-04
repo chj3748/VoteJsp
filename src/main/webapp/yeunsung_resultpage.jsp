@@ -56,6 +56,7 @@ Random r= new Random();
 		int i=0;
 		for (String key : voteResult.keySet()) {
 			i++;
+			System.out.println(i);
 			String rgb = "#"+Integer.toHexString(r.nextInt(255*255*255));
 			int count = voteResult.get(key);
 			int ratio = new Double(Math.round((double) count/sumCount*100)).intValue();
