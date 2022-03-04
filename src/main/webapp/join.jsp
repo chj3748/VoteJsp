@@ -106,7 +106,7 @@ span{
 	            <label class="radio"><input type="radio" name="gender" value="male">Male</label>
 				<label class="radio"><input type="radio" name="gender" value="female">Female</label><br/>
                <button class="inputBtn" type="submit" value="가입">가입</button>
-               <button class="inputBtn" type="reset" value="취소">취소</button>
+               <button class="inputBtn" type="button" value="취소" onclick="location.href='index.jsp'">취소</button>
             </fieldset>
          </form>
       </div>
