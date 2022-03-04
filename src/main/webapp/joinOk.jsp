@@ -30,23 +30,27 @@
 		  	if (user != null) {
 		  		response.sendRedirect("loginFail.jsp");
 		  	}
-		  } catch (Exception e) {
-			e.printStackTrace();
-			response.sendRedirect("join.jsp");
-		  }
 	  
-	  if (pwd.equals(pwdc)){
-	  		try{
-	  			userDAO.join(joinUser);
-	  			response.sendRedirect("login.jsp");
-	  		}catch (Exception e){
-	  			response.sendRedirect("join.jsp");
-	  		}
-	  	}else{
-	  		//비밀번호 일치하지 않는 경우
-	    	response.sendRedirect("loginFail.jsp");
-		 
-	  	}	     
+	  		else if (pwd.equals(pwdc)){
+		  		try{
+		  			userDAO.join(joinUser);
+		  			System.out.println(joinUser.getId());
+		  			System.out.println(joinUser.getPwd());
+		  			System.out.println(joinUser.getName());
+		  			System.out.println(joinUser.getAge());
+		  			System.out.println(joinUser.getGender());
+		  			response.sendRedirect("login.jsp");
+		  		}catch (Exception e){
+		  			response.sendRedirect("join.jsp");
+		  		}
+		  	}else{
+		  		//비밀번호 일치하지 않는 경우
+		    	response.sendRedirect("loginFail.jsp");
+		  	}
+	  }
+	  catch(Exception e){
+		  response.sendRedirect("index.jsp");
+	  }
    %>
    
 </body>
