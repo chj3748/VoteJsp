@@ -98,7 +98,7 @@ h1{
    try {
       Class.forName("com.mysql.cj.jdbc.Driver");
       IDcon = DriverManager.getConnection(
-      "jdbc:mysql://13.209.88.99:3306/test?useUnicode=true&serverTimezone=Asia/Seoul&", "aws", "1234");
+      "jdbc:mysql://13.209.88.99:3306/jsp?useUnicode=true&serverTimezone=Asia/Seoul&", "aws", "1234");
       String IDsql = "select * from vote_result where voter=?";
       IDpstmt = IDcon.prepareStatement(IDsql);
       IDpstmt.setString(1, Ss_id);
