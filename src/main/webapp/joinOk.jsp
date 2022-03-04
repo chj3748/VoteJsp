@@ -23,8 +23,6 @@
 	  String name = request.getParameter("name");
 	  String age = request.getParameter("age");
 	  String gender = request.getParameter("gender");
-	  
-	  System.out.println(id+pwd+ pwdc+ name+ age+ gender);
 
    	  Connection IDcon = null;
 	  PreparedStatement IDpstmt = null;
@@ -81,7 +79,6 @@
 	   		  pstmt.setString(3, name);
 	   		  pstmt.setString(4, age);
 	   		  pstmt.setString(5, gender);
-	   		  System.out.println(sql);
 	   		  
 	   		  n = pstmt.executeUpdate();
 	   	  } catch (ClassNotFoundException ce) {
