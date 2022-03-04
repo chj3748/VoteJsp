@@ -75,9 +75,8 @@ h1{
 
 </head>
 <body>
-	<h1>야 식 전 쟁</h1>
 
-	
+	<h1>야 식 전 쟁</h1>
 	<%
    	request.setCharacterEncoding("UTF-8");
 
@@ -134,3 +133,5 @@ h1{
 </body>
 
 </html>
+
+

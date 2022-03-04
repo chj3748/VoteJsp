@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>��ǥ�ϱ�</title>
+<meta charset="UTF-8">
+<title>투표하기</title>
 <style type="text/css">
 @font-face {
 	font-family: 'BMHANNAPro';
@@ -44,43 +44,43 @@
 
 <body>
 	<div id="wrap">
-		<h1>��ǥ�ϱ�</h1>
+		<h1>투표하기</h1>
 		<div id="vote_wrap">
 			<fieldset>
-				<legend>�߽� �޴�</legend>
+				<legend>야식 메뉴</legend>
 				<form action="radioResult.jsp">
 					<div class="option">
-						<label> ġŲ :<input type="radio" name="menu" value="chicken"
+						<label> 치킨 :<input type="radio" name="menu" value="chicken"
 							checked="checked">
 						</label>
 					</div>
 
 					<div class="option">
-						<label> ���� :<input type="radio" name="menu" value="pizza">
+						<label> 피자 :<input type="radio" name="menu" value="pizza">
 						</label>
 
 					</div>
 
 					<div class="option">
-						<label> �н� :<input type="radio" name="menu" value="snack">
+						<label> 분식 :<input type="radio" name="menu" value="snack">
 						</label>
 					</div>
 
 					<div class="option">
-						<label> ȸ :<input type="radio" name="menu" value="sashimi">
+						<label> 회 :<input type="radio" name="menu" value="sashimi">
 						</label>
 					</div>
 
 					<div class="option">
-						<label> �߹� :<input type="radio" name="menu" value="chickenfeet">
+						<label> 닭발 :<input type="radio" name="menu" value="chickenfeet">
 						</label>
 					</div>
 
 					<div class="option">
-						<label> ��â :<input type="radio" name="menu" value="giblets">
+						<label> 곱창 :<input type="radio" name="menu" value="giblets">
 						</label>
 					</div>
-					<input type="submit" value="����">
+					<input type="submit" value="전송">
 				</form>
 			</fieldset>
 			
@@ -89,6 +89,10 @@
 
 	</div>
 
+
+
+
+	<h1>�����ϱ�</h1>
 
 
 </body>
