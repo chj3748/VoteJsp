@@ -30,9 +30,8 @@ Random r= new Random();
 <body>
 <h2>투표 결과</h2>
 <%
-	LinkedHashMap<String, int> voteResult= null;
+	LinkedHashMap<String, Integer> voteResult= null;
 	VoteDAO voteDao = new VoteDAO();
-	int sumCount=0;
 	try{
 		voteResult = voteDao.voteCnt();
 	}catch(Exception e){
@@ -76,7 +75,7 @@ Random r= new Random();
 
 		</td>
 		
-		<td><%=voteResult.get(voteResultKey[i]) %>
+		<td><%=voteResult.get(key) %>
 		
 	</tr>
 	<% }  %>
