@@ -10,6 +10,8 @@
 <%@page import="pack.vote.VoteDAO" %>
 <%@page import="pack.vote.VoteDTO" %>
 <%@page import="java.util.LinkedHashMap" %>
+<%@page import="java.util.Set" %>
+<%@page import="java.util.Random" %>
 
 <!DOCTYPE html>
 <%
@@ -28,7 +30,8 @@ Random r= new Random();
 <body>
 <h2>투표 결과</h2>
 <%
-	LinkedHashMap voteResult= null;
+	String[] menus={"치킨","피자","분식","회","닭발","곱창"};
+	LinkedHashMap<String, Integer> voteResult= null;
 	VoteDAO voteDao = new VoteDAO();
 	try{
 		voteResult = voteDao.voteCnt();
@@ -36,35 +39,34 @@ Random r= new Random();
 		e.printStackTrace();
 		response.sendRedirect("index.jsp");
 	}
-%>
-<%
-		Set<String> voteResultKey= voteResult.keySet();
-		int sumCount=0;
-		for(int i =0;i<voteResultKey.length<i++){
-			int count = voteResult.get(voteResultKey[i]);
-			sumCount=sumCount+count;
-		}
-			
 
+	int sumCount=0;
+	for (String key : voteResult.keySet()) {
+		int count = voteResult.get(key);
+		sumCount+= count;
+	}
 	%>
 	<table border="1" width="400">
 	<tr>
-		<td colspan="3"><b><%="총 투표자 :"sumCount %> </b></td>
+		<td colspan="3"><b><%="총 투표자 :"+sumCount %> </b></td>
 		<td width="40"><b><%="득표수"%></b></td>
 	</tr>
 	
 
 	<%
-		for(int i =0;i<voteResultKey.length<i++){	
+		int i=0;
+		for (String key : voteResult.keySet()) {
+			i++;
+			System.out.println(i);
 			String rgb = "#"+Integer.toHexString(r.nextInt(255*255*255));
-			int count = voteResult.get(voteResultKey[i]);
+			int count = voteResult.get(key);
 			int ratio = new Double(Math.round((double) count/sumCount*100)).intValue();
 
 	%>
 	<tr>
-		<td width="20" align = "center"><%=i+1%></td>
+		<td width="20" align = "center"><%=i%></td>
 		
-		<td width="120" align = "center"><%=voteResultKey[i] %>
+		<td width="120" align = "center"><%=key %>
 		<td>
 		
 			<table width="<%=ratio%>"> 
@@ -75,16 +77,38 @@ Random r= new Random();
 
 		</td>
 		
-		<td><%=voteResult.get(voteResultKey[i]) %>
+		<td><%=voteResult.get(key) %></td>
 		
 	</tr>
-	<% } %>
-	</table>
+	<% }  
+		for(int j = 0; j < menus.length; j++) {
+			if(!voteResult.containsKey(menus[j])) {
+				i++;
+	%>
+		<tr>
+		<td width="20" align = "center"><%=i%></td>
+		
+		<td width="120" align = "center"><%=menus[j] %>
+		<td>
+		
+			<table width="<%=0%>"> 
+				<tr> 
+					<td bgcolor="black" height = "15"></td> 
+				</tr> 
+			</table>
 
-<!-- for (Object key : urlsMap.keySet()) {
-      urlsMap.get(key);
-  }
-	 -->
+		</td>
+		
+		<td>0</td>
+		
+	</tr>
+	<%
+			}
+		}
+	%>
+	
+	
+	</table>
 
 
 		
