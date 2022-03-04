@@ -30,6 +30,7 @@ Random r= new Random();
 <body>
 <h2>투표 결과</h2>
 <%
+	String[] menus={"치킨","피자","분식","회","닭발","곱창"};
 	LinkedHashMap<String, Integer> voteResult= null;
 	VoteDAO voteDao = new VoteDAO();
 	try{
@@ -76,10 +77,37 @@ Random r= new Random();
 
 		</td>
 		
-		<td><%=voteResult.get(key) %>
+		<td><%=voteResult.get(key) %></td>
 		
 	</tr>
-	<% }  %>
+	<% }  
+		for(int j = 0; j < menus.length; j++) {
+			if(!voteResult.containsKey(menus[j])) {
+				i++;
+	%>
+		<tr>
+		<td width="20" align = "center"><%=i%></td>
+		
+		<td width="120" align = "center"><%=menus[j] %>
+		<td>
+		
+			<table width="<%=0%>"> 
+				<tr> 
+					<td bgcolor="black" height = "15"></td> 
+				</tr> 
+			</table>
+
+		</td>
+		
+		<td>0</td>
+		
+	</tr>
+	<%
+			}
+		}
+	%>
+	
+	
 	</table>
 
 
