@@ -5,10 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-import pack.vote.VoteDTO;
+import pack.config.Config;
 
 public class VoteDAO {
 	private Connection conn;
@@ -19,7 +18,7 @@ public class VoteDAO {
 
 	private void getConnection() throws Exception {
 		String driver = "com.mysql.cj.jdbc.Driver";
-		String db_url = "jdbc:mysql://13.209.88.99:3306/jsp";
+		String db_url = "jdbc:mysql://"+Config.getDbIP()+":3306/jsp";
 		String db_id = "aws";
 		String db_pw = "1234";
 		try {
@@ -28,7 +27,7 @@ public class VoteDAO {
 			System.out.println("vote db connected");
 		} catch (ClassNotFoundException | SQLException e) {
 //			e.printStackTrace();
-			throw new Exception("vote db connect ½ÇÆÐÀÓ ¤·¤·");
+			throw new Exception("vote db connect ì‹¤íŒ¨");
 		}
 
 	}
@@ -47,7 +46,7 @@ public class VoteDAO {
 			System.out.println("vote connection close");
 		} catch (SQLException e) {
 //			e.printStackTrace();
-			throw new Exception("vote db close ½ÇÆÐÀÓ ¤·¤·");
+			throw new Exception("vote db close ì‹¤íŒ¨");
 		}
 
 	}
@@ -57,7 +56,7 @@ public class VoteDAO {
 			getConnection();
 			String sql = "insert into vote_result (voter, candidate) values(?,?);";
 			psmt = conn.prepareStatement(sql);
-			System.out.println("insert ½ÇÇà");
+			System.out.println("vote insert");
 			
 			psmt.setString(1, dto.getVoter());
 			psmt.setString(2, dto.getCandidate());
@@ -65,7 +64,7 @@ public class VoteDAO {
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {
 //			e.printStackTrace();
-			throw new Exception("ÅõÇ¥ ½ÇÆÐÀÓ ¤·¤·");
+			throw new Exception("vote insert ì‹¤íŒ¨");
 		} finally {
 			close();
 		}
@@ -89,7 +88,7 @@ public class VoteDAO {
 			}
 		} catch (SQLException e) {
 //			e.printStackTrace();
-			throw new Exception("ÅõÇ¥ÀÚ È®ÀÎ ½ÇÆÐÀÓ ¤·¤·");
+			throw new Exception("voter find ì‹¤íŒ¨");
 		} finally {
 			close();
 		}
@@ -112,7 +111,7 @@ public class VoteDAO {
 			}
 		} catch (SQLException e) {
 //			e.printStackTrace();
-			throw new Exception("ÅõÇ¥ °á°ú Á¶È¸ ½ÇÆÐÀÓ ¤·¤·");
+			throw new Exception("vote result ì‹¤íŒ¨");
 		} finally {
 			close();
 		}
@@ -129,7 +128,7 @@ public class VoteDAO {
 			rsDrop = psmt.execute();
 		} catch (SQLException e) {
 //			e.printStackTrace();
-			throw new Exception("µå¶ø Å×ÀÌºí ½ÇÆÐÀÓ ¤·¤·");
+			throw new Exception("drop vote result ì‹¤íŒ¨");
 		} finally {
 			close();
 		}
@@ -151,7 +150,7 @@ public class VoteDAO {
 			rsDrop = psmt.execute();
 		} catch (SQLException e) {
 //			e.printStackTrace();
-			throw new Exception("Å©¸®¿¡ÀÌÆ® Å×ÀÌºí ½ÇÆÐÀÓ ¤·¤·");
+			throw new Exception("create vote result ì‹¤íŒ¨");
 		} finally {
 			close();
 		}

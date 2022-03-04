@@ -29,7 +29,7 @@
 				String menu[] = request.getParameterValues("menu");
 				try {
 					Class.forName("com.mysql.cj.jdbc.Driver"); // DB연결 객체 생성
-					Connection con = DriverManager.getConnection("jdbc:mysql://13.209.88.99:3306/jsp", "aws", "1234");
+					Connection con = DriverManager.getConnection("jdbc:mysql://54.180.222.104:3306/jsp", "aws", "1234");
 					
 					Statement stmt = con.createStatement();
 					ResultSet rs=stmt.executeQuery("select id from vote_user where id='"+id+"'");
