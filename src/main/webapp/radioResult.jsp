@@ -28,23 +28,28 @@
 				if(rs2.next()){
 %>
 				<script>
-					alert("이미 투표를 완료했습니다."); // 
+					alert("이미 투표를 완료했습니다."); 
 					history.go(-1);
 				</script>
+				
+		
 
-
-<% 			
+<% 				
+				
+				response.sendRedirect("./yeunsung_resultpage.jsp");
 			}else{
 
 				stmt.executeUpdate("insert into vote_result (voter, candidate) values ('"+id+"', '"+menu[0]+"')");	
 			
 %>
-	
+			
 			<span>기록되었습니다.</span>
 			<h1><%=id %></h1>
 			<h1><%=menu[0] %></h1>
+			 
 			
 <%	
+			response.sendRedirect("./yeunsung_resultpage.jsp");
 			}
 		}
 		else{
@@ -55,8 +60,9 @@
 				history.go(-1);
 			</script>
 		
-		}
+	
 	<%
+		
 	}
 		stmt.close();
 		con.close();

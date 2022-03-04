@@ -63,6 +63,14 @@ h1{
 	width: 100px;
 	height: 30px;
 }
+
+#main{
+	background-color:#F5C836; 
+	font-size: 15px;
+	width: 50px;
+	height: 30px;
+	margin-top: 50px;
+}
 </style>
 
 </head>
@@ -108,7 +116,9 @@ h1{
 					</div>
 					<input type="submit" value="전송" id = "button">
 				</form>
+				
 			</fieldset>
+			<button onclick="location.href='index.jsp'" id = "main">메인</button>
 			
 			
 		</div>
