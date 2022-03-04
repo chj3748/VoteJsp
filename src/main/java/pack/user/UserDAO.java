@@ -58,7 +58,7 @@ public class UserDAO {
 			psmt.setString(1, dto.getId());
 			psmt.setString(2, dto.getPwd());
 			psmt.setString(3, dto.getName());
-			psmt.setString(4, dto.getAge());
+			psmt.setInt(4, dto.getAge());
 			psmt.setString(5, dto.getGender());
 			
 			cnt = psmt.executeUpdate();
@@ -84,7 +84,7 @@ public class UserDAO {
 				String id = rs.getString(1);
 				String pwd = rs.getString(2);
 				String name = rs.getString(3);
-				String age = rs.getString(4);
+				int age = rs.getInt(4);
 				String gender = rs.getString(5);
 				
 				
@@ -111,7 +111,7 @@ public class UserDAO {
 				String id = rs.getString(1);
 				String pwd = rs.getString(2);
 				String name = rs.getString(3);
-				String age = rs.getString(4);
+				int age = rs.getInt(4);
 				String gender = rs.getString(5);
 				
 				user = new UserDTO(id, pwd, name, age, gender);

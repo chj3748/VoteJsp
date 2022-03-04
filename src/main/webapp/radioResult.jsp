@@ -11,7 +11,7 @@
 
 
 <%
-	
+	//session.setAttribute("userId", "ahhyun");
 	if(session.getAttribute("userId") != null){
 		//String id = new String("ahhyun");
 		String id = (String)session.getAttribute("userId");

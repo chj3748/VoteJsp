@@ -5,10 +5,10 @@ public class UserDTO {
 	private String pwd;
 	private String pwdc;
 	private String name;
-	private String age;
+	private int age;
 	private String gender;
 	
-	public UserDTO(String id, String pwd, String pwdc, String name, String age, String gender) {
+	public UserDTO(String id, String pwd, String pwdc, String name, int age, String gender) {
 		super();
 		this.id = id;
 		this.pwd = pwd;
@@ -19,7 +19,7 @@ public class UserDTO {
 	}
 
 	
-	public UserDTO(String id, String pwd, String name, String age, String gender) {
+	public UserDTO(String id, String pwd, String name, int age, String gender) {
 		super();
 		this.id = id;
 		this.pwd = pwd;
@@ -68,11 +68,11 @@ public class UserDTO {
 		this.name = name;
 	}
 
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
