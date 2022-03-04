@@ -9,13 +9,15 @@
 </head>
 <body>
 	<%
+	
 	UserDAO userDAO = new UserDAO();
 	try{
 		int cnt = userDAO.adminClose();
 	}catch(Exception e){
 		e.printStackTrace();
+		response.sendRedirect("loginFail.jsp");
 	}
-
+	response.sendRedirect("index.jsp");
 	%>
 </body>
 </html>
