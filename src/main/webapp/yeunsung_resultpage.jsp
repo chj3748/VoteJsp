@@ -106,60 +106,64 @@ tr, td{
    <h1 >투표 결과</h1>
 
 <%
-   String[] menus={"치킨","피자","분식","회","닭발","곱창"};
-   LinkedHashMap<String, Integer> voteResult= null;
-   VoteDAO voteDao = new VoteDAO();
-   try{
-      voteResult = voteDao.voteCnt();
-   }catch(Exception e){
-      e.printStackTrace();
-      response.sendRedirect("index.jsp");
-   }
-
-   int sumCount=0;
-   for (String key : voteResult.keySet()) {
-      int count = voteResult.get(key);
-      sumCount+= count;
-   }
-   %>
-   <table class="tb">
-   <tr>
-      <td colspan="3" width="180"><b><%="총 투표자 : "+sumCount+"명" %> </b></td>
-      <td width="60"><b><%="득표수"%></b></td>
-   </tr>
-   
-
-   <%
-      int i=0;
-      for (String key : voteResult.keySet()) {
-         i++;
-         System.out.println(i);
-         String rgb = "#"+Integer.toHexString(r.nextInt(255*255*255));
-         int count = voteResult.get(key);
-         int ratio = new Double(Math.round((double) count/sumCount*100)).intValue();
-
-   %>
-   <tr>
-      <td width="20" align = "center"><%=i%></td>
-      
-      <td width="120" align = "center"><%=key %>
-      <td>
-      
-         <table width="<%=ratio*5%>" > 
-            <tr> 
-               <td bgcolor="<%=rgb%>" height = "15" align="center" style="font-size:15px;"><%=ratio+"%" %></td> 
-            </tr> 
-         </table>
-
-      </td>
-      
-      <td><%=voteResult.get(key) %></td>
-      
-   </tr>
-   <% }  
-      for(int j = 0; j < menus.length; j++) {
-         if(!voteResult.containsKey(menus[j])) {
-            i++;
+	if(session.getAttribute("userId") == null){
+		response.sendRedirect("index.jsp");
+	}else{
+	   String[] menus={"치킨","피자","분식","회","닭발","곱창"};
+	   LinkedHashMap<String, Integer> voteResult= null;
+	   VoteDAO voteDao = new VoteDAO();
+	   try{
+	      voteResult = voteDao.voteCnt();
+	   }catch(Exception e){
+	      e.printStackTrace();
+	      response.sendRedirect("index.jsp");
+	   }
+	
+	   int sumCount=0;
+	   for (String key : voteResult.keySet()) {
+	      int count = voteResult.get(key);
+	      sumCount+= count;
+	   }
+	   %>
+	   <table class="tb">
+	   <tr>
+	      <td colspan="3" width="180"><b><%="총 투표자 : "+sumCount+"명" %> </b></td>
+	      <td width="60"><b><%="득표수"%></b></td>
+	   </tr>
+	   
+	
+	   <%
+	      int i=0;
+	      for (String key : voteResult.keySet()) {
+	         i++;
+	         System.out.println(i);
+	         String rgb = "#"+Integer.toHexString(r.nextInt(255*255*255));
+	         int count = voteResult.get(key);
+	         int ratio = new Double(Math.round((double) count/sumCount*100)).intValue();
+	
+	   %>
+	   <tr>
+	      <td width="20" align = "center"><%=i%></td>
+	      
+	      <td width="120" align = "center"><%=key %>
+	      <td>
+	      
+	         <table width="<%=ratio*5%>" > 
+	            <tr> 
+	               <td bgcolor="<%=rgb%>" height = "15" align="center" style="font-size:15px;"><%=ratio+"%" %></td> 
+	            </tr> 
+	         </table>
+	
+	      </td>
+	      
+	      <td><%=voteResult.get(key) %></td>
+	      
+	   </tr>
+	   <% }  
+	      for(int j = 0; j < menus.length; j++) {
+	         if(!voteResult.containsKey(menus[j])) {
+	            i++;
+       }
    %>
       <tr>
       <td width="20" align = "center"><%=i%></td>

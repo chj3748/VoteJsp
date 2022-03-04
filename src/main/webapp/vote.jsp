@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="pack.user.UserDTO" %>
+<%@page import="pack.user.UserDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,6 +79,20 @@ h1{
 
 
 <body>
+
+	<%
+		try{
+			if(new UserDAO().findUser(new UserDTO("admin")).getAge()==1) {
+				response.sendRedirect("yeunsung_resultpage.jsp");
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			response.sendRedirect("index.jsp");
+		}
+		if(session.getAttribute("userId") == null){
+			response.sendRedirect("index.jsp");
+		}
+	%>
 	<div id="wrap">
 		<h1>투표하기</h1>
 		<div id="vote_wrap">
