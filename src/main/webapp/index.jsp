@@ -94,11 +94,12 @@ h1{
   	  user = voteDAO.findVoter(checkUser);
   	  
   	  try{
-	  	  if(Ss_id == "admin"){
+	  	  if(Ss_id.equals("admin")){
 	    	 UserDTO manager = new UserDTO(Ss_id);
 	    	 UserDAO userDAO = new UserDAO();
 	    	 
 	    	 UserDTO adminInfo = userDAO.findUser(manager);
+	    	 System.out.println(adminInfo.getAge());
 	    	 if(adminInfo.getAge()==1){
 	    	 %>
 	  			<button class="w-btn w-btn-yellow" onclick="location.href='open.jsp'">투표 시작</button>
@@ -111,7 +112,7 @@ h1{
 	    	 }
 	    	 %>
 	    	 <button class="w-btn w-btn-yellow" onclick="location.href='yeunsung_resultpage.jsp'">투표현황</button>
-	  	  	 <button class="w-btn w-btn-yellow" onclick="location.href='logout.jsp'">로그아웃</button>
+	  	  	 
 	  	  	 <%
 	  	  }
   		  
