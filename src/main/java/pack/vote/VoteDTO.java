@@ -19,6 +19,11 @@ public class VoteDTO {
 		this.voter = voter;
 		this.candidate = candidate;
 	}
+	
+	public VoteDTO(String voter) {
+		super();
+		this.voter = voter;
+	}
 
 
 	public int getId() {
