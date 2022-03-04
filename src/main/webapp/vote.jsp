@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.time.LocalTime" %>
+<%@page import="java.time.format.DateTimeFormatter" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,6 +47,20 @@ h1{
 
 }
 
+h3{
+	color: #59f536;
+
+}
+
+h3 span{
+	color: #59f536;
+}
+
+h4{
+	color: #fff;
+
+}
+
 #vote_wrap {
 	width: 80%;
 	color:#fff;
@@ -75,10 +91,28 @@ h1{
 
 </head>
 
+<% 
+//현재 시간
+LocalTime now = LocalTime.now();
+//현재시간 출력
+System.out.println(now); // 06:20:57.008731300
+//포맷 정의하기
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH시 mm분 ss초");
+//포맷 적용하기
+String formatedNow = now.format(formatter);
+//포맷 적용된 현재 시간 출력
+System.out.println(formatedNow); // 06시 20분 57초
+
+
+
+
+%>
 
 <body>
 	<div id="wrap">
 		<h1>투표하기</h1>
+		<h3>종료 시간: <span>PM 6</span> </h3>
+		<h4>현재 시간: <%=date %> </h4>
 		<div id="vote_wrap">
 			<fieldset>
 				<legend>야식 메뉴</legend>
@@ -118,6 +152,10 @@ h1{
 				</form>
 				
 			</fieldset>
+			
+			<%
+				
+			%>
 			<button onclick="location.href='index.jsp'" id = "main">메인</button>
 			
 			
