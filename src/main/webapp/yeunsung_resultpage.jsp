@@ -184,7 +184,7 @@ tr, td{
    </tr>
    <%
          }
-      }
+     
    %>
    
    
@@ -194,6 +194,9 @@ tr, td{
 	<button onclick="location.href='index.jsp'">홈으로</button>
       
    </div>
+   <% 
+	 }
+   %>
       
 </body>
 

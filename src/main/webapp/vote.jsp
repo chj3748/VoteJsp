@@ -81,17 +81,13 @@ h1{
 <body>
 
 	<%
-		try{
-			if(new UserDAO().findUser(new UserDTO("admin")).getAge()==1) {
-				response.sendRedirect("yeunsung_resultpage.jsp");
+		if(new UserDAO().findUser(new UserDTO("admin")).getAge()==1) {
+			response.sendRedirect("yeunsung_resultpage.jsp");
+		}else{
+		
+			if(session.getAttribute("userId") == null){
+				response.sendRedirect("index.jsp");
 			}
-		}catch(Exception e){
-			e.printStackTrace();
-			response.sendRedirect("index.jsp");
-		}
-		if(session.getAttribute("userId") == null){
-			response.sendRedirect("index.jsp");
-		}
 	%>
 	<div id="wrap">
 		<h1>투표하기</h1>
@@ -140,7 +136,9 @@ h1{
 		</div>
 
 	</div>
-
+	<%
+		}
+	%>
 
 
 </body>
