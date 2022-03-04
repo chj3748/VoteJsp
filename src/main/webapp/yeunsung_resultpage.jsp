@@ -85,6 +85,17 @@ table{
    width: 100px;
    height: 30px;
 }
+.tb{
+	 border: 2px solid white; 
+	 background-color: black; 
+	 border-radius: 16px;
+  	 box-shadow: inset 0 0 8px "ffcc99";
+  	 width: 400px; 
+  	 
+}
+tr, td{
+    border: 1px solid #ffffff;
+  }
 </style>
 </head>
 
@@ -111,9 +122,9 @@ table{
       sumCount+= count;
    }
    %>
-   <table border="1" width="400">
+   <table class="tb">
    <tr>
-      <td colspan="3"><b><%="총 투표자 :"+sumCount %> </b></td>
+      <td colspan="3"><b><%="총 투표자 : "+sumCount+"명" %> </b></td>
       <td width="60"><b><%="득표수"%></b></td>
    </tr>
    
@@ -174,8 +185,9 @@ table{
    
    
    </table>
-
-	<button href="index.jsp">홈으로</button>
+	
+	<br>
+	<button onclick="location.href='index.jsp'">홈으로</button>
       
    </div>
       
