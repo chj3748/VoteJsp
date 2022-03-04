@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@page import="pack.user.UserDTO" %>
+<%@page import="pack.user.UserDAO" %>
 <%@page import="pack.vote.VoteDAO" %>
 <%@page import="pack.vote.VoteDTO" %>
 
@@ -93,7 +94,28 @@ h1{
   	  user = voteDAO.findVoter(checkUser);
   	  
   	  try{
-  		  if(user != null){
+	  	  if(Ss_id == "admin"){
+	    	 UserDTO manager = new UserDTO(Ss_id);
+	    	 UserDAO userDAO = new UserDAO();
+	    	 
+	    	 UserDTO adminInfo = userDAO.findUser(manager);
+	    	 if(adminInfo.getAge()==1){
+	    	 %>
+	  			<button class="w-btn w-btn-yellow" onclick="location.href='open.jsp'">투표 시작</button>
+	  			
+  		     <% 
+	    	 }else{
+	    		%>
+	    		 <button class="w-btn w-btn-yellow" onclick="location.href='close.jsp'">투표 종료</button>
+	    	 <% 
+	    	 }
+	    	 %>
+	    	 <button class="w-btn w-btn-yellow" onclick="location.href='yeunsung_resultpage.jsp'">투표현황</button>
+	  	  	 <button class="w-btn w-btn-yellow" onclick="location.href='logout.jsp'">로그아웃</button>
+	  	  	 <%
+	  	  }
+  		  
+	  	  else if(user != null){
   			  %>
   			<button class="w-btn w-btn-yellow" onclick="location.href='yeunsung_resultpage.jsp'">투표현황</button>
   		   <% 
