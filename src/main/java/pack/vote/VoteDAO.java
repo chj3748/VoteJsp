@@ -119,4 +119,38 @@ public class VoteDAO {
 		return result;
 	}
 	
+	public Boolean closeVote() throws Exception {
+		getConnection();
+		Boolean rsDrop = false;
+		try {
+			String sql = "drop table vote_result;";
+			psmt = conn.prepareStatement(sql);
+
+			rsDrop = psmt.execute();
+		} catch (SQLException e) {
+//			e.printStackTrace();
+			throw new Exception("드랍 테이블 실패임 ㅇㅇ");
+		} finally {
+			close();
+		}
+		return rsDrop;
+	}
+	
+	public Boolean openVote() throws Exception {
+		getConnection();
+		Boolean rsDrop = false;
+		try {
+			String sql = "create table vote_result;";
+			psmt = conn.prepareStatement(sql);
+			
+			rsDrop = psmt.execute();
+		} catch (SQLException e) {
+//			e.printStackTrace();
+			throw new Exception("크리에이트 테이블 실패임 ㅇㅇ");
+		} finally {
+			close();
+		}
+		return rsDrop;
+	}
+	
 }
