@@ -13,6 +13,7 @@
 <%
 	//session.setAttribute("userId", "ahhyun");
 	if(session.getAttribute("userId") != null){
+		request.setCharacterEncoding("UTF-8");
 		//String id = new String("ahhyun");
 		String id = (String)session.getAttribute("userId");
 		String menu[] = request.getParameterValues("menu");
