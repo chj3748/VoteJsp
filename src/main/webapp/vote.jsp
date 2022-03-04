@@ -15,8 +15,21 @@
 	font-style: normal;
 }
 
+
+@font-face {
+    font-family: 'BMKIRANGHAERANG';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMKIRANGHAERANG.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
-	font-family: 'BMHANNAPro';
+	font-family: 'BMKIRANGHAERANG';
+}
+
+html{
+
+	background-color:black;
 }
 
 #wrap {
@@ -27,15 +40,28 @@
 	font-size: 25px;
 }
 
+h1{
+	color:#F5C836;
+
+}
+
 #vote_wrap {
 	width: 80%;
+	color:#fff;
+	
 }
 
 .option {
 	margin-top: 50px;
 	margin-left: 200px;
 	margin-bottom: 50px;
+	font-size: 30px;
+}
+
+#button{
 	font-size: 20px;
+	width: 100px;
+	height: 30px;
 }
 </style>
 
@@ -50,37 +76,37 @@
 				<legend>야식 메뉴</legend>
 				<form action="radioResult.jsp">
 					<div class="option">
-						<label> 치킨 :<input type="radio" name="menu" value="chicken"
+						<label> 치킨 🍗: <input type="radio" name="menu" value="chicken"
 							checked="checked">
 						</label>
 					</div>
 
 					<div class="option">
-						<label> 피자 :<input type="radio" name="menu" value="pizza">
+						<label> 피자 🍕: <input type="radio" name="menu" value="pizza">
 						</label>
 
 					</div>
 
 					<div class="option">
-						<label> 분식 :<input type="radio" name="menu" value="snack">
+						<label> 분식 🍙: <input type="radio" name="menu" value="snack">
 						</label>
 					</div>
 
 					<div class="option">
-						<label> 회 :<input type="radio" name="menu" value="sashimi">
+						<label> 회 🍣 :<input type="radio" name="menu" value="sashimi">
 						</label>
 					</div>
 
 					<div class="option">
-						<label> 닭발 :<input type="radio" name="menu" value="chickenfeet">
+						<label> 닭발 🐔: <input type="radio" name="menu" value="chickenfeet">
 						</label>
 					</div>
 
 					<div class="option">
-						<label> 곱창 :<input type="radio" name="menu" value="giblets">
+						<label> 곱창 🐷🐮: <input type="radio" name="menu" value="giblets">
 						</label>
 					</div>
-					<input type="submit" value="전송">
+					<input type="submit" value="전송" id = "button">
 				</form>
 			</fieldset>
 			
