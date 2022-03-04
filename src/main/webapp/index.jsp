@@ -122,10 +122,10 @@ h1{
   		   <% 
   		  }
   		   else{
-  			 if(userDAO.findUser(new UserDTO("admin")).getAge()==0) {
+  			 if(new UserDAO().findUser(new UserDTO("admin")).getAge()==0) {
   			 %>
   			<button class="w-btn w-btn-yellow" onclick="location.href='vote.jsp'">투표하기</button>
-  			<%else { %>
+  			<%}else { %>
   			<button class="w-btn w-btn-yellow" onclick="location.href='yeunsung_resultpage.jsp'">투표현황</button>
   			<%
   			 }
