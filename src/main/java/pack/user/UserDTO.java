@@ -28,12 +28,15 @@ public class UserDTO {
 		this.gender = gender;
 	}
 
-
-
 	public UserDTO(String id, String pwd) {
 		super();
 		this.id = id;
 		this.pwd = pwd;
+	}
+	
+	public UserDTO(String id) {
+		super();
+		this.id = id;
 	}
 
 	public String getId() {
