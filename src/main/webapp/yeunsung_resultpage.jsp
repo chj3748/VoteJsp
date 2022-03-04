@@ -175,7 +175,7 @@ table{
    
    </table>
 
-
+	<button href="index.jsp">홈으로</button>
       
    </div>
       
