@@ -113,7 +113,7 @@ table{
    <table border="1" width="400">
    <tr>
       <td colspan="3"><b><%="총 투표자 :"+sumCount %> </b></td>
-      <td width="40"><b><%="득표수"%></b></td>
+      <td width="60"><b><%="득표수"%></b></td>
    </tr>
    
 
@@ -133,9 +133,9 @@ table{
       <td width="120" align = "center"><%=key %>
       <td>
       
-         <table width="<%=ratio%>"> 
+         <table width="<%=ratio%>" > 
             <tr> 
-               <td bgcolor="<%=rgb%>" height = "15"></td> 
+               <td bgcolor="<%=rgb%>" height = "15" align="center" style="font-size:15px;"><%=ratio+"%" %></td> 
             </tr> 
          </table>
 
@@ -158,7 +158,7 @@ table{
          <table width="<%=0%>"> 
             <tr> 
                <td bgcolor="black" height = "15"></td> 
-            </tr> 
+            </tr>
          </table>
 
       </td>
