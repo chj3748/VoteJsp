@@ -9,26 +9,31 @@
 </head>
 <body>
 	<%
-	UserDAO userDAO = new UserDAO();
-	try{
-		try{
-			int cnt = userDAO.adminOpen(); 
-			
-		}catch(Exception e){
-			throw new Exception("admin open 실패");
-		}
-	
-		VoteDAO voteDAO = new VoteDAO();
-		try{
-			voteDAO.closeVote();
-			voteDAO.openVote();
-		}catch(Exception e){
-			throw new Exception("투표 리셋 실패");
-		}
+	if(!(session.getAttribute("userId").equals("admin"))){
 		response.sendRedirect("index.jsp");
-	}catch(Exception e){
-		e.printStackTrace();
-		response.sendRedirect("loginFail.jsp");
+	}
+	else{
+		UserDAO userDAO = new UserDAO();
+		try{
+			try{
+				int cnt = userDAO.adminOpen(); 
+				
+			}catch(Exception e){
+				throw new Exception("admin open 실패");
+			}
+		
+			VoteDAO voteDAO = new VoteDAO();
+			try{
+				voteDAO.closeVote();
+				voteDAO.openVote();
+			}catch(Exception e){
+				throw new Exception("투표 리셋 실패");
+			}
+			response.sendRedirect("index.jsp");
+		}catch(Exception e){
+			e.printStackTrace();
+			response.sendRedirect("loginFail.jsp");
+		}
 	}
 	%>
 </body>
