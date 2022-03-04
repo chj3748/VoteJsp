@@ -124,31 +124,5 @@ public class UserDAO {
 		}
 		return user;
 	}
-	
-	public UserDTO voterCheck(UserDTO dto) throws Exception {
-		getConnection();
-		try {
-			String sql = "select * from vote_result where voter=?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getId());
-
-			rs = psmt.executeQuery();
-			if (rs.next()) {
-				String id = rs.getString(1);
-				String pwd = rs.getString(2);
-				String name = rs.getString(3);
-				int age = rs.getInt(4);
-				String gender = rs.getString(5);
-				
-				user = new UserDTO(id, pwd, name, age, gender);
-			}
-		} catch (SQLException e) {
-//			e.printStackTrace();
-			throw new Exception("유저 찾기 실패임 ㅇㅇ");
-		} finally {
-			close();
-		}
-		return user;
-	}
-	
+		
 }
