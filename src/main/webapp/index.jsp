@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.io.IOException"%>
-<%@page import="java.sql.SQLException"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="javax.servlet.jsp.JspWriter"%>
 
+<%@page import="pack.vote.VoteDAO" %>
+<%@page import="pack.vote.VoteDTO" %>
 
 <!DOCTYPE html>
 <html>
@@ -88,48 +83,39 @@ h1{
 	<%
    }
    else if (session.getAttribute("userId") != null) {
-   %>
-
-	<%
-   Connection IDcon = null;
-   PreparedStatement IDpstmt = null;
-   String Ss_id = (String)session.getAttribute("userId");
-   int findID = 0;
-   try {
-      Class.forName("com.mysql.cj.jdbc.Driver");
-      IDcon = DriverManager.getConnection(
-      "jdbc:mysql://13.209.88.99:3306/jsp?useUnicode=true&serverTimezone=Asia/Seoul&", "aws", "1234");
-      String IDsql = "select * from vote_result where voter=?";
-      IDpstmt = IDcon.prepareStatement(IDsql);
-      IDpstmt.setString(1, Ss_id);
-      ResultSet rs = IDpstmt.executeQuery();
-      findID = rs.next() ? 1 : 0;
-   } catch (ClassNotFoundException | SQLException e) {
-      e.printStackTrace();
-   } finally {
-      try {
-         if (IDpstmt != null)
-      IDpstmt.close();
-
-         if (IDcon != null)
-      IDcon.close();
-
-      } catch (SQLException se) {
-         System.out.println(se.getMessage());
-      }
-   }
-   if (findID == 1) {%>
-	<button class="w-btn w-btn-yellow" onclick="location.href='yeunsung_resultpage.jsp'">투표현황</button>
-	<%}
    
-   else{%>
-	<button class="w-btn w-btn-yellow" onclick="location.href='vote.jsp'">투표하기</button>
-	<%
-   }%>
-	<button class="w-btn w-btn-yellow" onclick="location.href='logout.jsp'">로그아웃</button>
-	<% 
+      String Ss_id = (String)session.getAttribute("userId");
+      
+  	  VoteDTO user = null;
+  	  VoteDTO checkUser = new VoteDTO(Ss_id);
+  	  VoteDAO voteDAO = new VoteDAO();
+      
+  	  user = voteDAO.findVoter(checkUser);
+  	  
+  	  try{
+  		  if(user != null){
+  			  %>
+  			<button class="w-btn w-btn-yellow" onclick="location.href='yeunsung_resultpage.jsp'">투표현황</button>
+  		   <% 
+  		  }
+  		   else{
+  			 %>
+  			<button class="w-btn w-btn-yellow" onclick="location.href='vote.jsp'">투표하기</button>
+  			<% 
+  		   }
+  		 %>
+  			<button class="w-btn w-btn-yellow" onclick="location.href='logout.jsp'">로그아웃</button>
+  		 <%
+  	  }catch(Exception e){
+  		e.printStackTrace();
+  		response.sendRedirect("login.jsp");
+  	  }
+
    }
-   %>
+   else{
+	   
+   }
+   %> 
 </body>
 
 </html>
