@@ -133,9 +133,9 @@ tr, td{
 	   
 	
 	   <%
-	      int i=0;
+	   	  int i=0;
 	      for (String key : voteResult.keySet()) {
-	         i++;
+	    	 i++;
 	         System.out.println(i);
 	         String rgb = "#"+Integer.toHexString(r.nextInt(255*255*255));
 	         int count = voteResult.get(key);
@@ -159,30 +159,30 @@ tr, td{
 	      <td><%=voteResult.get(key) %></td>
 	      
 	   </tr>
-	   <% }  
+	   <% }
 	      for(int j = 0; j < menus.length; j++) {
-	         if(!voteResult.containsKey(menus[j])) {
+	    	  if(!(voteResult.containsKey(menus[j]))) {
 	            i++;
-       }
+       			
    %>
-      <tr>
-      <td width="20" align = "center"><%=i%></td>
-      
-      <td width="120" align = "center"><%=menus[j] %>
-      <td>
-      
-         <table width="<%=0%>"> 
-            <tr> 
-               <td bgcolor="black" height = "15"></td> 
-            </tr>
-         </table>
-
-      </td>
-      
-      <td>0</td>
-      
-   </tr>
+		      <tr>
+		      <td width="20" align = "center"><%=i%></td>
+		      
+		      <td width="120" align = "center"><%=menus[j] %>
+		      <td>
+		      
+		         <table width="<%=0%>"> 
+		            <tr> 
+		               <td bgcolor="black" height = "15"></td> 
+		            </tr>
+		         </table>
+		
+		      </td>
+		      
+		      <td>0</td>
+		   	  </tr>
    <%
+	    	  }
          }
      
    %>
