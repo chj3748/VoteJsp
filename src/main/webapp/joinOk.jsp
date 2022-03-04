@@ -12,10 +12,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원가입</title>
 </head>
 <body>
-	<h1>hello</h1>
+	
 	<% 			 
 	  String id = request.getParameter("id");
 	  String pwd = request.getParameter("pwd");
@@ -77,7 +77,7 @@
 	   		  pstmt.setString(1, id);
 	   		  pstmt.setString(2, pwd);
 	   		  pstmt.setString(3, name);
-	   		  pstmt.setString(4, age);
+	   		  pstmt.setInt(4, age);
 	   		  pstmt.setString(5, gender);
 	   		  
 	   		  n = pstmt.executeUpdate();
