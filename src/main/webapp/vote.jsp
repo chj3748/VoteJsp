@@ -19,7 +19,13 @@
 	font-family: 'BMHANNAPro';
 }
 
+html{
+	background-color: black;
+}
+
+
 #wrap {
+	
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -27,13 +33,19 @@
 	font-size: 25px;
 }
 
+h1{
+	color: #ffe345;
+}
+
 #vote_wrap {
 	width: 80%;
+	color: #fff;
 }
+
 
 .option {
 	margin-top: 50px;
-	margin-left: 200px;
+	margin-left: 300px;
 	margin-bottom: 50px;
 	font-size: 20px;
 }

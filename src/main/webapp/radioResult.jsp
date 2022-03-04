@@ -14,7 +14,7 @@
 	
 	if(session.getAttribute("userId") != null){
 		//String id = new String("ahhyun");
-		String id = session.getAttribute("userId");
+		String id = (String)session.getAttribute("userId");
 		String menu[] = request.getParameterValues("menu");
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver"); // DB연결 객체 생성
