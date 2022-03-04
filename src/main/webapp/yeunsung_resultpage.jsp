@@ -90,8 +90,8 @@ table{
 	 background-color: black; 
 	 border-radius: 16px;
   	 box-shadow: inset 0 0 8px "ffcc99";
-  	 width: 400px; 
-  	 
+  	 width: 700px; 
+  	 height :400px;
 }
 tr, td{
     border: 1px solid #ffffff;
@@ -124,7 +124,7 @@ tr, td{
    %>
    <table class="tb">
    <tr>
-      <td colspan="3"><b><%="총 투표자 : "+sumCount+"명" %> </b></td>
+      <td colspan="3" width="180"><b><%="총 투표자 : "+sumCount+"명" %> </b></td>
       <td width="60"><b><%="득표수"%></b></td>
    </tr>
    
@@ -145,7 +145,7 @@ tr, td{
       <td width="120" align = "center"><%=key %>
       <td>
       
-         <table width="<%=ratio%>" > 
+         <table width="<%=ratio*5%>" > 
             <tr> 
                <td bgcolor="<%=rgb%>" height = "15" align="center" style="font-size:15px;"><%=ratio+"%" %></td> 
             </tr> 
