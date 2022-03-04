@@ -10,10 +10,10 @@
 <%@page import="pack.vote.VoteDAO" %>
 <%@page import="pack.vote.VoteDTO" %>
 <%@page import="java.util.LinkedHashMap" %>
-
+<%@page import="java.util.*" %>
 <!DOCTYPE html>
 <%
-Random r= new Random();
+	Random r= new Random();
 %>
 
 <html>
@@ -40,7 +40,7 @@ Random r= new Random();
 <%
 		Set<String> voteResultKey= voteResult.keySet();
 		int sumCount=0;
-		for(int i =0;i<voteResultKey.length<i++){
+		for(int i =0;i<voteResultKey.length; i++){
 			int count = voteResult.get(voteResultKey[i]);
 			sumCount=sumCount+count;
 		}
@@ -49,13 +49,13 @@ Random r= new Random();
 	%>
 	<table border="1" width="400">
 	<tr>
-		<td colspan="3"><b><%="총 투표자 :"sumCount %> </b></td>
+		<td colspan="3"><b><%="총 투표자 :" + sumCount %> </b></td>
 		<td width="40"><b><%="득표수"%></b></td>
 	</tr>
 	
 
 	<%
-		for(int i =0;i<voteResultKey.length<i++){	
+		for(int i =0;i<voteResultKey.length; i++){	
 			String rgb = "#"+Integer.toHexString(r.nextInt(255*255*255));
 			int count = voteResult.get(voteResultKey[i]);
 			int ratio = new Double(Math.round((double) count/sumCount*100)).intValue();
