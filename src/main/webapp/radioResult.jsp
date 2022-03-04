@@ -40,7 +40,7 @@
 				response.sendRedirect("./yeunsung_resultpage.jsp");
 			}else{
 
-				stmt.executeUpdate("insert into vote_result (voter, candidate) values ('"+id+"', '"+menu[0]+"')");	
+				stmt.executeUpdate("insert into vote_result (voter, candidate, vote_time) values ('"+id+"', '"+menu[0]+"', sysdate())");	
 			
 %>
 			
